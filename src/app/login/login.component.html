@@ -4,13 +4,13 @@
     <h1>Sign in to your account</h1>
     <form action="">
         <div class="mt-3 p-2">
-            <input (change)="acnoChange($event)" class="form-control" id="acid" name="acnum1" type="text" [placeholder]="input">
+            <input #acno class="form-control" id="acid" name="acnum1" type="text" [placeholder]="input">
         </div>
         <div class="mt-3 p-2">
-            <input (change)="pwdChange($event)" class="form-control" id="psw" name="paswrd1" type="password" placeholder="Password">
+            <input #pwd class="form-control" id="psw" name="paswrd1" type="password" placeholder="Password">
         </div>
         <div class="mt-3 p-2">
-            <button type="button" (click)="login()" class="btn btn-danger">Login</button>
+            <button type="button" (click)="login(acno,pwd)" class="btn btn-danger">Login</button>
         </div>
     </form>
 </div>

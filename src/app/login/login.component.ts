@@ -10,8 +10,8 @@ export class LoginComponent implements OnInit {
   data="Your perfect banking partner"
   input="Account Number"
 
-  acno=''   //or acno=any (need to initialise)
-  pwd=''
+  // acno=''   //or acno=any (need to initialise)
+  // pwd=''
 
   userDetails:any={
     1000:{acno:1000,username:"arun",password:"abc123",balance:0},
@@ -26,21 +26,60 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(){
-    alert('login clicked')
+  // login(){
+  //   var acno=this.acno
+  //   var pwd=this.pwd
+  //   var userDetails1=this.userDetails
+  //   if(acno in userDetails1){
+  //     if(pwd==userDetails1[acno]["password"]){
+  //       alert('login successful')
 
-  }
-  acnoChange(event:any){
-    this.acno=event.target.value   //alaways use this. while calling, data will be stored here event.target.value
-    console.log(this.acno);
+  //     }
+  //     else{
+  //       alert('incorrect password')
+  //     }
+
+  //   }
+  //   else{
+  //     alert('acno incorrect or not registered')
+  //   }
+  //   //alert('login clicked')
+
+  // }
+
+  login(a:any,b:any){
+    console.log(a.value);
     
-  }
+    var acno=a.value
+    var pwd=b.value
+    var userDetails1=this.userDetails
+    if(acno in userDetails1){
+      if(pwd==userDetails1[acno]["password"]){
+        alert('login successful')
 
-  pwdChange(event:any){
-     this.pwd=event.target.value
-     console.log(this.pwd);
-     
+      }
+      else{
+        alert('incorrect password')
+      }
+
+    }
+    else{
+      alert('acno incorrect or not registered')
+    }
+    //alert('login clicked')
+
   }
+  // acnoChange(event:any){
+  //   this.acno=event.target.value   //alaways use (this.) while calling, data will be stored here event.target.value
+  //   //console.log(this.acno);
+    
+  // }
+
+  // pwdChange(event:any){
+  //    this.pwd=event.target.value
+  //    //console.log(this.pwd);
+     
+  // }
 
 
 }

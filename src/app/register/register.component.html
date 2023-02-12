@@ -2,13 +2,13 @@
     <h1>Sign Up</h1>
     <form action="">
         <div class="mt-3 p-2">
-            <input class="form-control" id="unamid" name="usern1" type="text" placeholder="Enter Username">
+            <input [(ngModel)]="uname"  class="form-control" id="unamid" name="usern1" type="text" placeholder="Enter Username">
         </div>
         <div class="mt-3 p-2">
-            <input class="form-control" id="acid" name="acnum1" type="text" placeholder="Enter acnum">
+            <input [(ngModel)]="acno" class="form-control" id="acid" name="acnum1" type="text" placeholder="Enter Account Number">
         </div>
         <div class="mt-3 p-2">
-            <input class="form-control" id="psw" name="paswrd1" type="password" placeholder="Enter Password">
+            <input [(ngModel)]="psw" class="form-control" id="psw" name="paswrd1" type="password" placeholder="Enter Password">
         </div>
         <div class="mt-3 p-2">
             <button type="button" (click)="register()" class="btn btn-warning">Register</button>

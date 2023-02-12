@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   input="Account Number"
 
   acno=''                             //or acno=any (need to initialise)
-  pwd=''
+  psw=''
 
 
   constructor(private router:Router,private ds:DataService) {}
@@ -23,59 +23,16 @@ export class LoginComponent implements OnInit {
 
   login(){
     var acno=this.acno
-    var pwd=this.pwd
-    var userDetails=this.ds.userDetails
-    if(acno in userDetails){
-      if(pwd==userDetails[acno]["password"]){
-        alert('login successful')
-        this.router.navigateByUrl('dashboard')
+    var psw=this.psw
 
-      }
-      else{
-        alert('incorrect password')
-      }
-
+    const result=this.ds.login(acno,psw)
+    if(result){
+      alert('login success')
+      this.router.navigateByUrl('dashboard')
     }
     else{
-      alert('acno incorrect or not registered')
+      alert('incorrect acno or password')
     }
-    //alert('login clicked')
-
   }
-
-  // login(a:any,b:any){
-  //   console.log(a.value);
-    
-  //   var acno=a.value
-  //   var pwd=b.value
-  //   var userDetails1=this.userDetails
-  //   if(acno in userDetails1){
-  //     if(pwd==userDetails1[acno]["password"]){
-  //       alert('login successful')
-
-  //     }
-  //     else{
-  //       alert('incorrect password')
-  //     }
-
-  //   }
-  //   else{
-  //     alert('acno incorrect or not registered')
-  //   }
-  //   //alert('login clicked')
-
-  // }
-  // acnoChange(event:any){
-  //   this.acno=event.target.value   //alaways use (this.) while calling, data will be stored here event.target.value
-  //   //console.log(this.acno);
-    
-  // }
-
-  // pwdChange(event:any){
-  //    this.pwd=event.target.value
-  //    //console.log(this.pwd);
-     
-  // }
-
 
 }

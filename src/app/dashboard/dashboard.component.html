@@ -1,1 +1,53 @@
-<h1>Welocome {{this.user}}</h1>
+<h1 class="mt-4">Welocome {{this.user}}</h1>
+
+<div class="container row">
+    <div class="container text-center col-lg-6 col-md-12">
+        <div class="container w-75 mt-5 p-5 text-center"
+            style="background-color: rgba(0, 0, 0, 0.686);color: white; border-radius: 25px; border-color: whitesmoke;">
+    
+            <h1 class="text-white mt-1">Deposit</h1>
+            <form action="">
+    
+    
+                <div class="p-3 mt-2">
+                    <input [(ngModel)]="acno1" class="form-control" id="acid1" name="acnum1" type="text" placeholder="Enter Account Number">
+                </div>
+                <div class="p-3 mt-2">
+                    <input [(ngModel)]="psw1" class="form-control" id="psw1" name="paswrd1" type="password" placeholder="Enter Password">
+                </div>
+                <div class="p-3 mt-2">
+                    <input [(ngModel)]="amnt1" class="form-control" id="amouid" name="amnt1" type="text" placeholder="Enter Amount">
+                </div>
+                <div class="p-3 mt-2">
+                    <button type="button" (click)="deposit()" class="btn btn-outline-warning">Deposit</button>
+                </div>
+    
+            </form>
+        </div>
+    
+    </div>
+    
+    <div class="container text-center col-lg-6 col-md-12">
+        <div class="container w-75 mt-5 p-5 text-center"style="background-color: rgba(0, 0, 0, 0.686);color: white; border-radius: 25px; border-color: whitesmoke;">
+            
+            <h1 class="text-white mt-1">Withdraw</h1>
+            <form action="">
+    
+    
+                <div class="p-3 mt-2">
+                    <input [(ngModel)]="acno2" class="form-control" id="acid2" name="acnum2" type="text" placeholder="Enter Account Number">
+                </div>
+                <div class="p-3 mt-2">
+                    <input [(ngModel)]="psw2" class="form-control" id="psw2" name="paswrd2" type="password" placeholder="Enter Password">
+                </div>
+                <div class="p-3 mt-2">
+                    <input  [(ngModel)]="amnt2"class="form-control" id="amouid1" name="amnt2" type="text" placeholder="Enter Amount">
+                </div>
+                <div class="p-3 mt-2">
+                    <button type="button" (click)="withdraw()" class="btn btn-outline-warning">Withdraw</button>
+                </div>
+    
+            </form>
+        </div>
+    </div>
+</div>

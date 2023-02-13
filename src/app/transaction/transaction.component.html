@@ -1,0 +1,21 @@
+
+
+
+<div class="container w-50 p-5 text-center fs-4">
+    <h2 class=" fs-1" style="color: white;" ><strong>Transaction History</strong></h2>
+    <table class="w-100 bg-dark text-warning p-5 mt-4">
+        <thead class="bg-secondary">
+
+            <tr class="text-white">
+                <th>Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let i of transactionData">
+            <tr>
+                <td>{{i.Type}}</td>
+                <td>{{i.amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

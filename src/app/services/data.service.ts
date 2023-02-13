@@ -7,13 +7,15 @@ export class DataService {
 
   currentUser: any
 
+  currentAcno: any
+
   constructor() { }
 
   userDetails: any = {
-    1000: { acno: 1000, username: "arun", password: "abc123", balance: 0 },
-    1001: { acno: 1001, username: "anu", password: "abc123", balance: 0 },
-    1002: { acno: 1002, username: "amal", password: "abc123", balance: 0 },
-    1003: { acno: 1003, username: "abhi", password: "abc123", balance: 0 },
+    1000: { acno: 1000, username: "arun", password: "abc123", balance: 0, transaction: [] },
+    1001: { acno: 1001, username: "anu", password: "abc123", balance: 0, transaction: [] },
+    1002: { acno: 1002, username: "amal", password: "abc123", balance: 0, transaction: [] },
+    1003: { acno: 1003, username: "abhi", password: "abc123", balance: 0, transaction: [] },
 
   }
 
@@ -36,7 +38,9 @@ export class DataService {
     if (acno in userDetails) {
       if (psw == userDetails[acno]["password"]) {
         this.currentUser = userDetails[acno]["username"]
-        console.log(this.currentUser);
+        //console.log(this.currentUser);
+
+        this.currentAcno=acno
 
         return true
 
@@ -64,6 +68,11 @@ export class DataService {
         //update balance
         userDetails[acnum]["balance"] += amnt
 
+        //transaction data store
+        userDetails[acnum]["transaction"].push({ Type: "CREDIT", amount: amnt })
+        console.log(userDetails);
+        
+
         //return current balance
         return userDetails[acnum]["balance"]
       }
@@ -89,6 +98,9 @@ export class DataService {
 
           userDetails[acnum]["balance"] -= amnt
 
+          userDetails[acnum]["transaction"].push({ Type: "DEBIT", amount: amnt })
+          
+
           return userDetails[acnum]["balance"]
         }
         else {
@@ -107,5 +119,9 @@ export class DataService {
       alert('incorrect acno')
       return false
     }
+  }
+
+  getTransaction(acno:any){
+    return this.userDetails[acno]["transaction"]
   }
 }

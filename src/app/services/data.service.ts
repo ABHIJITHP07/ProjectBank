@@ -88,19 +88,22 @@ export class DataService {
   withdraw(acnum: any, password: any, amount: any) {
 
     var userDetails = this.userDetails
-
+    
+    //converting string amount to number
     var amnt = parseInt(amount)
 
     if (acnum in userDetails) {
       if (password == userDetails[acnum]["password"]) {
 
+        //update balance
         if (userDetails[acnum]["balance"] > amnt) {
 
           userDetails[acnum]["balance"] -= amnt
 
+          //transaction history
           userDetails[acnum]["transaction"].push({ Type: "DEBIT", amount: amnt })
           
-
+          //return current balance
           return userDetails[acnum]["balance"]
         }
         else {

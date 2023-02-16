@@ -4,13 +4,22 @@
         <div class="mt-3 p-2">
             <input formControlName="uname" class="form-control" id="unamid" name="usern1" type="text" placeholder="Enter Username">
         </div>
+        <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('acno')?.touched ">
+            <p class="text-danger">Characters Only</p>
+        </div>
 
         <div class="mt-3 p-2">
             <input formControlName="acno"  class="form-control" id="acid" name="acnum1" type="text" placeholder="Enter Account Number">
         </div>
+        <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched ">
+            <p class="text-danger">Numbers Only</p>
+        </div>
 
         <div class="mt-3 p-2">
             <input formControlName="psw"  class="form-control" id="psw" name="paswrd1" type="password" placeholder="Enter Password">
+        </div>
+        <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched ">
+            <p class="text-danger">must contain characters</p>
         </div>
 
         <div class="mt-3 p-2">

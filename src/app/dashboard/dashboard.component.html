@@ -1,27 +1,37 @@
-<h1 class="mt-4">Welocome {{this.user}}</h1>
-
-<div class="mt-3 p-3 w-25 container text-center rounded-pill" style="background-color: rgba(0, 0, 0, 0.686);color: white;">
-    <a class="text-center" style="text-decoration: none;color: yellow;" href="" routerLink="/transaction">View Transaction History</a>
+<div class="text-end p-3">
+    <button class="btn btn-warning">Logout</button>
+    <button class="btn btn-danger ms-2">Delete Account</button>
 </div>
 
-<div class="row text-center">
+<h1 class="mt-3">Welocome {{this.user}}</h1>
+
+<div class="mt-3 p-3 w-25 container text-center rounded-pill"
+    style="background-color: rgba(0, 0, 0, 0.686);color: white;">
+    <a class="text-center" style="text-decoration: none;color: yellow;" href="" routerLink="/transaction">View
+        Transaction History</a>
+</div>
+
+
+<div class="row mb-5 p-5 text-center">
     <div class="container text-center col-lg-6 col-md-12">
         <div class="container w-75 mt-5 p-4 text-center"
             style="background-color: rgba(0, 0, 0, 0.686);color: white; border-radius: 25px; border-color: whitesmoke;">
-    
+
             <h1 class="text-white mt-1">Deposit</h1>
             <form [formGroup]="depositForm" action="">
-    
-    
+
+
                 <div class="p-3 mt-2">
-                    <input formControlName="acno1" class="form-control" id="acid1" name="acnum1" type="text" placeholder="Enter Account Number">
+                    <input formControlName="acno1" class="form-control" id="acid1" name="acnum1" type="text"
+                        placeholder="Enter Account Number">
                 </div>
                 <div *ngIf="this.depositForm.get('acno1')?.errors && this.depositForm.get('acno1')?.touched ">
                     <p class="text-danger">Numbers Only</p>
                 </div>
-                
+
                 <div class="p-3 mt-2">
-                    <input formControlName="psw1" class="form-control" id="psw1" name="paswrd1" type="password" placeholder="Enter Password">
+                    <input formControlName="psw1" class="form-control" id="psw1" name="paswrd1" type="password"
+                        placeholder="Enter Password">
                 </div>
                 <div *ngIf="this.depositForm.get('psw1')?.errors && this.depositForm.get('psw1')?.touched ">
                     <p class="text-danger">Numbers and Characters Only</p>
@@ -29,7 +39,8 @@
 
 
                 <div class="p-3 mt-2">
-                    <input formControlName="amnt1" class="form-control" id="amouid" name="amnt1" type="text" placeholder="Enter Amount">
+                    <input formControlName="amnt1" class="form-control" id="amouid" name="amnt1" type="text"
+                        placeholder="Enter Amount">
                 </div>
                 <div *ngIf="this.depositForm.get('amnt1')?.errors && this.depositForm.get('amnt1')?.touched ">
                     <p class="text-danger">Numbers Only</p>
@@ -39,21 +50,23 @@
                 <div class="p-3 mt-2">
                     <button type="button" (click)="deposit()" class="btn btn-outline-warning">Deposit</button>
                 </div>
-    
+
             </form>
         </div>
-    
+
     </div>
-    
+
     <div class="container text-center col-lg-6 col-md-12">
-        <div class="container w-75 mt-5 p-4 text-center"style="background-color: rgba(0, 0, 0, 0.686);color: white; border-radius: 25px; border-color: whitesmoke;">
-            
+        <div class="container w-75 mt-5 p-4 text-center"
+            style="background-color: rgba(0, 0, 0, 0.686);color: white; border-radius: 25px; border-color: whitesmoke;">
+
             <h1 class="text-white mt-1">Withdraw</h1>
             <form [formGroup]="withdrawForm" action="">
-    
-    
+
+
                 <div class="p-3 mt-2">
-                    <input formControlName="acno2" class="form-control" id="acid2" name="acnum2" type="text" placeholder="Enter Account Number">
+                    <input formControlName="acno2" class="form-control" id="acid2" name="acnum2" type="text"
+                        placeholder="Enter Account Number">
                 </div>
                 <div *ngIf="this.withdrawForm.get('acno2')?.errors && this.withdrawForm.get('acno2')?.touched ">
                     <p class="text-danger">Numbers Only</p>
@@ -61,7 +74,8 @@
 
 
                 <div class="p-3 mt-2">
-                    <input formControlName="psw2" class="form-control" id="psw2" name="paswrd2" type="password" placeholder="Enter Password">
+                    <input formControlName="psw2" class="form-control" id="psw2" name="paswrd2" type="password"
+                        placeholder="Enter Password">
                 </div>
                 <div *ngIf="this.withdrawForm.get('psw2')?.errors && this.withdrawForm.get('psw2')?.touched ">
                     <p class="text-danger">Numbers and Characters Only</p>
@@ -69,7 +83,8 @@
 
 
                 <div class="p-3 mt-2">
-                    <input  formControlName="amnt2"class="form-control" id="amouid1" name="amnt2" type="text" placeholder="Enter Amount">
+                    <input formControlName="amnt2" class="form-control" id="amouid1" name="amnt2" type="text"
+                        placeholder="Enter Amount">
                 </div>
                 <div *ngIf="this.withdrawForm.get('amnt2')?.errors && this.withdrawForm.get('amnt2')?.touched ">
                     <p class="text-danger">Numbers Only</p>
@@ -79,7 +94,7 @@
                 <div class="p-3 mt-2">
                     <button type="button" (click)="withdraw()" class="btn btn-outline-warning">Withdraw</button>
                 </div>
-    
+
             </form>
         </div>
     </div>

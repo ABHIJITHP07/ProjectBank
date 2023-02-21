@@ -14,9 +14,16 @@ export class DashboardComponent implements OnInit {
 
   acno: any
 
+  datedetails: any
+
 
   constructor(private ds: DataService, private fb: FormBuilder, private router: Router) {
     this.user = this.ds.currentUser
+
+    //access date
+
+    this.datedetails = new Date()
+
   }
 
   depositForm = this.fb.group({
@@ -32,10 +39,10 @@ export class DashboardComponent implements OnInit {
   })
 
   ngOnInit(): void {
-  if(!localStorage.getItem("currentAcno")){    // '!' is used as "not"
-    alert('Please login')
-    this.router.navigateByUrl("")
-  }
+    if (!localStorage.getItem("currentAcno")) {    // '!' is used as "not"
+      alert('Please login')
+      this.router.navigateByUrl("")
+    }
   }
 
   deposit() {
@@ -85,10 +92,14 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl("")
   }
 
-  deleteParent(){
-    this.acno=JSON.parse(localStorage.getItem("currentAcno") || "")
-
-  
+  deleteParent() {
+    this.acno = JSON.parse(localStorage.getItem("currentAcno") || "")
   }
+
+  cancel() {
+    this.acno = ''
+  }
+
+
 
 }

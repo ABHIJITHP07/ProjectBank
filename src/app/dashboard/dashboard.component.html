@@ -1,18 +1,22 @@
+
+
 <div class="text-end p-3">
-    <button class="btn btn-warning">Logout</button>
-    <button class="btn btn-danger ms-2">Delete Account</button>
+    <button class="btn btn-danger" (click)="deleteParent()"> Delete Account</button>
+    <button (click)="logout()" class="btn btn-warning ms-2">Logout</button>
 </div>
 
-<h1 class="mt-3">Welocome {{this.user}}</h1>
+<h1 [ngClass]="acno? 'style':''" class="mt-3">Welocome {{this.user}}</h1>
 
-<div class="mt-3 p-3 w-25 container text-center rounded-pill"
+<div [ngClass]="acno? 'style':''" class="mt-3 p-3 w-25 container text-center rounded-pill"
     style="background-color: rgba(0, 0, 0, 0.686);color: white;">
     <a class="text-center" style="text-decoration: none;color: yellow;" href="" routerLink="/transaction">View
         Transaction History</a>
 </div>
 
+<app-deleteconfirm [item]="acno"></app-deleteconfirm>
 
-<div class="row mb-5 p-5 text-center">
+
+<div [ngClass]="acno? 'style':''" class="row mb-5 p-5 text-center">
     <div class="container text-center col-lg-6 col-md-12">
         <div class="container w-75 mt-5 p-4 text-center"
             style="background-color: rgba(0, 0, 0, 0.686);color: white; border-radius: 25px; border-color: whitesmoke;">
